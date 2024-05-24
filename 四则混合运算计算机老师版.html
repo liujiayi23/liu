@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            font-size: 20px;
+            border-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <p>简单四则混合运算计算器</p>
+    <form name="Cal">
+        <input type="text" name="outText" id="outText">
+        <br>
+        <input type="button" value="0" onclick="join(this)">&nbsp;
+        <input type="button" value="1" onclick="join(this)">&nbsp;
+        <input type="button" value="2" onclick="join(this)">&nbsp;
+        <input type="button" value="3" onclick="join(this)">
+        <br>
+        <input type="button" value="4" onclick="join(this)">&nbsp;
+        <input type="button" value="5" onclick="join(this)">&nbsp;
+        <input type="button" value="6" onclick="join(this)">&nbsp;
+        <input type="button" value="7" onclick="join(this)">
+        <br>
+        <input type="button" value="8" onclick="join(this)">&nbsp;
+        <input type="button" value="9" onclick="join(this)">&nbsp;
+        <input type="button" value="+" onclick="join(this)">&nbsp;
+        <input type="button" value="-" onclick="join(this)">
+        <br>
+        <input type="button" value="*" onclick="join(this)">&nbsp;
+        <input type="button" value="/" onclick="join(this)">&nbsp;
+        <input type="button" value="=" onclick="cal()">&nbsp;
+        <input type="button" value="退格" onclick="backSpace()">
+        <input type="reset" value="重置">
+    </form>
+    <script>
+        //定义一个实现字符串拼接的函数供数字和运算符按钮click时调用
+        function join(btn){//形参btn接受的实参是发生事件的事件源(就是点击的按钮)
+            var str=document.getElementById("outText").value;
+            document.getElementById("outText").value=str+btn.value;
+        }
+        //为等号按钮定义click事件发生时调用的函数
+        function cal(){
+            document.getElementById("outText").value=document.getElementById("outText").value+"="+eval(document.getElementById("outText").value);
+        }
+        function backSpace(){
+            //截取下标从0到Length-2的字符构成的子串,截取下标前一个不包括当前下标的字符
+            var exp=document.getElementById("outText").value;
+            document.getElementById("outText").value=exp.substring(0,exp.length-1);
+        }
+    </script>
+</body>
+</html>
