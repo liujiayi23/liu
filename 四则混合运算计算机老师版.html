@@ -40,8 +40,7 @@
         <input type="reset" value="重置">
     </form>
     <script>
-        //定义一个实现字符串拼接的函数供数字和运算符按钮click时调用
-        function join(btn){//形参btn接受的实参是发生事件的事件源(就是点击的按钮)
+        function join(btn){
             var str=document.getElementById("outText").value;
             document.getElementById("outText").value=str+btn.value;
         }
